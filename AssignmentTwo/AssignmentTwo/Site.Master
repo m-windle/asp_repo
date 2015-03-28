@@ -1,0 +1,92 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="AssignmentTwo.Site" %>
+
+<!DOCTYPE html>
+ 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%: Page.Title %> - SportsPro Application</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="Content/Site.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <form id="Form1" runat="server"> 
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a id="A1" class="navbar-brand" runat="server" href="~/">COMP2139</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a id="A2" runat="server" href="~/">Home</a></li>
+                        <li><a id="A3" runat="server" href="~/Customers.aspx">Customers</a></li>
+                        <li><a id="A4" runat="server" href="~/Surveys.aspx">Surveys</a></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" href="#" data-toggle="dropdown">Maintenance<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Admin/ProductsAdmin.aspx">Products</a></li>
+                                <li><a href="Admin/CustomersAdmin.aspx">Customers</a></li>
+                                <li><a href="Admin/TechniciansAdmin.aspx">Technicians</a></li>
+                            </ul>
+                        </li>
+                         <li><a id="A5" runat="server" href="~/Contact">Contact</a></li>
+                    </ul>
+                    <asp:LoginView ID="LoginView1" runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a id="A6" runat="server" href="~/Account/Register.aspx">Register</a></li>
+                                <li><a id="A7" runat="server" href="~/Account/Login.aspx">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a id="A8" runat="server" href="#" title="Manage your account">Hello, !</a></li>
+                                <li>
+                                    <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/"  />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header Content -->
+        <div class="container">
+            <asp:ContentPlaceHolder runat="server" ID="FeaturedContent"></asp:ContentPlaceHolder>
+        </div>
+        <!-- Body Content -->
+        <div class="container body-content">
+           
+            <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+            <hr />
+            <footer>
+                 <p>
+                    &copy; <%: DateTime.Now.Year %> - COMP2139 - SportsPro V 2.0
+                </p>
+            </footer>
+        </div>
+
+    </form>
+
+    <!-- JavaScript Libraries -->
+    <script src="scripts/jquery-1.9.1.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-resource.min.js"></script>
+   
+    <!-- AngularJS - Application files -->
+    <script src="scripts/app/app.js"></script>
+    <script src="scripts/app/data.js"></script>
+    <script src="scripts/app/studentCtrl.js"></script>
+  
+ 
+</body>
+</html>
