@@ -72,7 +72,7 @@
                                                 <asp:Label ID="lblProdVer" CssClass="text-info" runat="server" Text="Version: "></asp:Label>
                                                 <asp:TextBox ID="txtProdVer" CssClass="input-group" runat="server" ValidationGroup="insert"></asp:TextBox>
                                                 <asp:RequiredFieldValidator ID="reqProdVer" ControlToValidate="txtProdVer" ValidationGroup="insert" runat="server" ErrorMessage="Product version is required" Text="*"></asp:RequiredFieldValidator><br />
-                                                <asp:CompareValidator ID="valDecimal" ControlToValidate="txtProdVer" runat="server" ErrorMessage="Invalid version number" Text="*" Type="Double" ValidationGroup="insert"></asp:CompareValidator>
+                                                <asp:CompareValidator ID="valDecimal" ControlToValidate="txtProdVer" runat="server" ErrorMessage="Invalid version number" Text="*" Type="Double" ValidationGroup="insert" Operator="DataTypeCheck"></asp:CompareValidator>
                                             </asp:TableCell>
                                             <asp:TableCell>
                                                 <asp:Label ID="lblProdDate" CssClass="text-info" runat="server" Text="Release Date: "></asp:Label>

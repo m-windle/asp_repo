@@ -20,14 +20,22 @@ namespace AssignmentTwo
 
         protected void valDate_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (calProdDate.SelectedDate == null
-                   || calProdDate.SelectedDate == new DateTime(0001, 1, 1, 0, 0, 0))
+            try
+            {
+                if (calProdDate.SelectedDate == null
+                        || calProdDate.SelectedDate == new DateTime(0001, 1, 1, 0, 0, 0)
+                        || calProdDate.SelectedDate.Equals(null))
+                {
+                    args.IsValid = false;
+                }
+                else
+                {
+                    args.IsValid = true;
+                }
+            }
+            catch (Exception e)
             {
                 args.IsValid = false;
-            }
-            else
-            {
-                args.IsValid = true;
             }
         }
     }
