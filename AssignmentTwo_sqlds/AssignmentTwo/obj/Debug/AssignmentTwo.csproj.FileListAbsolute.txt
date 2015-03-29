@@ -9,3 +9,9 @@ F:\VS2012Projects\Assignments\AssignmentTwo\AssignmentTwo\bin\AssignmentTwo.pdb
 F:\VS2012Projects\Assignments\AssignmentTwo\AssignmentTwo\obj\Debug\AssignmentTwo.csprojResolveAssemblyReference.cache
 F:\VS2012Projects\Assignments\AssignmentTwo\AssignmentTwo\obj\Debug\AssignmentTwo.dll
 F:\VS2012Projects\Assignments\AssignmentTwo\AssignmentTwo\obj\Debug\AssignmentTwo.pdb
+E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\bin\AssignmentTwo.dll.config
+E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\bin\AssignmentTwo.dll
+E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\bin\AssignmentTwo.pdb
+E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.csprojResolveAssemblyReference.cache
+E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.dll
+E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.pdb
