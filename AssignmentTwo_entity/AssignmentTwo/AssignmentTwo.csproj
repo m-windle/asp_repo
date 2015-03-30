@@ -38,7 +38,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -75,6 +83,16 @@
     <Content Include="Customers.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Models\EF\SportsPro.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SportsPro.edmx</DependentUpon>
+      <LastGenOutput>SportsPro.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EF\SportsPro.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SportsPro.edmx</DependentUpon>
+      <LastGenOutput>SportsPro.cs</LastGenOutput>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -85,6 +103,13 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\angular-resource.min.js.map" />
+    <EntityDeploy Include="Models\EF\SportsPro.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SportsPro.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EF\SportsPro.edmx.diagram">
+      <DependentUpon>SportsPro.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -156,6 +181,39 @@
     </Compile>
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomerList.cs" />
+    <Compile Include="Models\EF\Customer.cs">
+      <DependentUpon>SportsPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\Incident.cs">
+      <DependentUpon>SportsPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\Product.cs">
+      <DependentUpon>SportsPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\Registration.cs">
+      <DependentUpon>SportsPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\SportsPro.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportsPro.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\SportsPro.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportsPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\SportsPro.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SportsPro.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\State.cs">
+      <DependentUpon>SportsPro.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\Technician.cs">
+      <DependentUpon>SportsPro.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Incident.cs" />
     <Compile Include="Models\Survey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,6 +249,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Admin\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
