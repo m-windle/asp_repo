@@ -49,6 +49,24 @@ namespace AssignmentTwo.Admin {
         protected global::System.Web.UI.WebControls.DetailsView dvCustomerSelect;
         
         /// <summary>
+        /// valSumEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary valSumEdit;
+        
+        /// <summary>
+        /// valSumInsert control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary valSumInsert;
+        
+        /// <summary>
         /// sqlCustomers control.
         /// </summary>
         /// <remarks>
