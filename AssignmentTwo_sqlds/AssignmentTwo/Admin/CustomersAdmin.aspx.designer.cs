@@ -40,13 +40,13 @@ namespace AssignmentTwo.Admin {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// dvCustomers control.
+        /// dvCustomerSelect control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView dvCustomers;
+        protected global::System.Web.UI.WebControls.DetailsView dvCustomerSelect;
         
         /// <summary>
         /// sqlCustomers control.
@@ -56,5 +56,14 @@ namespace AssignmentTwo.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sqlCustomers;
+        
+        /// <summary>
+        /// sqlCustomerSelect control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqlCustomerSelect;
     }
 }

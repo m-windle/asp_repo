@@ -2228,6 +2228,7 @@ pre code {
 }
 table {
   background-color: transparent;
+    margin-right: 18px;
 }
 caption {
   padding-top: 8px;
