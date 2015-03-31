@@ -15,3 +15,9 @@ E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\bin\AssignmentTwo
 E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.csprojResolveAssemblyReference.cache
 E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.dll
 E:\programming_junk\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.pdb
+C:\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.csprojResolveAssemblyReference.cache
+C:\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.dll
+C:\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\bin\AssignmentTwo.dll.config
+C:\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\bin\AssignmentTwo.dll
+C:\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\bin\AssignmentTwo.pdb
+C:\asp_repo\AssignmentTwo_sqlds\AssignmentTwo\obj\Debug\AssignmentTwo.pdb

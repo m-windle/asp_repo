@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Products Admin" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductsAdmin.aspx.cs" Inherits="AssignmentTwo.ProductsAdmin" %>
+﻿<%@ Page Title="Products Admin" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="True" CodeBehind="ProductsAdmin.aspx.cs" Inherits="AssignmentTwo.Admin.ProductsAdmin" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h4><%: "Maintain Products"  %></h4>
@@ -9,9 +9,12 @@
                 <div>
                     <asp:Label ID="lblTitle" runat="server" Text="Product List" CssClass="control-label pull-left text-info"></asp:Label>
                 </div>
-                <br />
+                <br /><br />
                 <div>
-                    <asp:GridView ID="grdProducts" runat="server" AllowPaging="True" AllowSorting="True" 
+                    <asp:Label ID="lblServerError" runat="server" Visible="False"></asp:Label>
+                    <asp:ValidationSummary ID="valEditSummary" ValidationGroup="edit" runat="server" />
+                    <asp:GridView OnRowUpdated="grdProducts_RowUpdated" OnRowDeleted="grdProducts_RowDeleted"
+                        ID="grdProducts" runat="server" AllowPaging="True" AllowSorting="True" 
                         AutoGenerateColumns="False" 
                         DataKeyNames="ProductCode" 
                         DataSourceID="sqlProducts" 
@@ -24,6 +27,7 @@
                             <asp:TemplateField HeaderText="Name" SortExpression="Name">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="txtNameEdit" runat="server" Text='<%# Bind("Name") %>'></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="valNameEdit" ControlToValidate="txtNameEdit" runat="server" ErrorMessage="Name is required" Text="*" ValidationGroup="edit"></asp:RequiredFieldValidator>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("Name") %>'></asp:Label>
@@ -32,6 +36,8 @@
                             <asp:TemplateField HeaderText="Version" SortExpression="Version">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="txtVerEdit" runat="server" Text='<%# Bind("Version") %>'></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="valVerEdit" ControlToValidate="txtVerEdit" runat="server" ErrorMessage="Version is Required" Text="*" ValidationGroup="edit"></asp:RequiredFieldValidator>
+                                    <asp:CompareValidator ID="valVerTypeEdit" ControlToValidate="txtVerEdit" runat="server" ErrorMessage="Invalid version type" Text="*" Type="Double" Operator="DataTypeCheck" ValidationGroup="edit"></asp:CompareValidator>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label2" runat="server" Text='<%# Bind("Version") %>'></asp:Label>
@@ -40,6 +46,8 @@
                             <asp:TemplateField HeaderText="Release Date" SortExpression="ReleaseDate">
                                 <EditItemTemplate>
                                     <asp:TextBox ID="txtDateEdit" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:TextBox>
+                                    <asp:RequiredFieldValidator ID="valDateEdit" ControlToValidate="txtDateEdit" runat="server" ErrorMessage="Date is Required" Text="*" ValidationGroup="edit"></asp:RequiredFieldValidator>
+                                    <asp:CompareValidator ID="valDateTypeEdit" ControlToValidate="txtDateEdit" runat="server" ErrorMessage="Invalid date" Text="*" ValidationGroup="edit" ViewStateMode="Inherit" Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
                                 </EditItemTemplate>
                                 <ItemTemplate>
                                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:Label>
@@ -80,7 +88,7 @@
                                                 <asp:CustomValidator ID="valDate" runat="server" OnServerValidate="valDate_ServerValidate" ValidationGroup="insert" ErrorMessage="Invalid date" Text="*"></asp:CustomValidator>
                                             </asp:TableCell>
                                             <asp:TableCell>
-                                                <asp:ValidationSummary ID="valSumInsert" ValidationGroup="insert" runat="server" />
+                                                <asp:ValidationSummary ID="valInsertSummary" ValidationGroup="insert" runat="server" />
                                             </asp:TableCell>
                                         </asp:TableRow>
                                         <asp:TableRow>

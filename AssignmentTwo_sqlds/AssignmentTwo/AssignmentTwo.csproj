@@ -129,6 +129,9 @@
     <Compile Include="Admin\CustomersAdmin.aspx.designer.cs">
       <DependentUpon>CustomersAdmin.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\ProductsAdmin.aspx.designer.cs">
+      <DependentUpon>ProductsAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\TechniciansAdmin.aspx.cs">
       <DependentUpon>TechniciansAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -139,9 +142,6 @@
     <Compile Include="Admin\ProductsAdmin.aspx.cs">
       <DependentUpon>ProductsAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ProductsAdmin.aspx.designer.cs">
-      <DependentUpon>ProductsAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="BlankPage.aspx.cs">
       <DependentUpon>BlankPage.aspx</DependentUpon>

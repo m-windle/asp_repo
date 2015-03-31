@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace AssignmentTwo
+namespace AssignmentTwo.Admin
 {
     public partial class CustomersAdmin : System.Web.UI.Page
     {
