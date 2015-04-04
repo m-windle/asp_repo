@@ -7,51 +7,30 @@
         <div class="form-horizontal">
             <div class="form-group">
                 <div class="col-md-1">
-                    <asp:Table runat="server" CssClass="table table-responsive">
+                    <asp:Table ID="tblOrg" runat="server" CssClass="table table-responsive">
+                    <asp:TableRow>
+                        <asp:TableHeaderCell>
+                            <asp:Label ID="lblTitle" runat="server" Text="Customer List" CssClass="control-label pull-left text-info" Width="99px"></asp:Label>
+                        </asp:TableHeaderCell>
+                        <asp:TableHeaderCell>
+                            <asp:Label ID="Label1" runat="server" Text="Customer Details" CssClass="control-label text-info"></asp:Label>
+                        </asp:TableHeaderCell>
+                    </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            <asp:Label ID="lblTitle" runat="server" Text="Customer List" CssClass="control-label pull-left text-info" Width="99px"></asp:Label><br /><br />
-                            <asp:GridView CssClass="table" PagerSettings-Mode="NextPreviousFirstLast" PagerSettings-FirstPageText="<<| " PagerSettings-PreviousPageText=" < " PagerSettings-NextPageText="| > " PagerSettings-LastPageText=" |>>" ID="grdCustomers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="sqlCustomers" Width="800px" CellPadding="4" ForeColor="#333333" GridLines="None">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
+                            <asp:GridView CssClass="table" PagerSettings-Mode="NextPreviousFirstLast" PagerSettings-FirstPageText="<<| " PagerSettings-PreviousPageText=" < " PagerSettings-NextPageText="| > " PagerSettings-LastPageText=" |>>" ID="grdCustomers" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="CustomerID" DataSourceID="sqlCustomers" Width="800px" BorderStyle="None">
                                 <Columns>
                                     <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name" />
                                     <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
                                     <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
                                     <asp:CommandField ShowSelectButton="True" ControlStyle-CssClass="btn btn-info btn-xs" />
                                 </Columns>
-                                <EditRowStyle BackColor="#999999"></EditRowStyle>
-
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></FooterStyle>
-
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></HeaderStyle>
 
                                 <PagerSettings FirstPageText="&lt;&lt;| " LastPageText=" |&gt;&gt;" NextPageText="| &gt; " PreviousPageText=" &lt; "></PagerSettings>
-
-                                <PagerStyle HorizontalAlign="Center" BackColor="#284775" ForeColor="White"></PagerStyle>
-
-                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333"></RowStyle>
-
-                                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333"></SelectedRowStyle>
-
-                                <SortedAscendingCellStyle BackColor="#E9E7E2"></SortedAscendingCellStyle>
-
-                                <SortedAscendingHeaderStyle BackColor="#506C8C"></SortedAscendingHeaderStyle>
-
-                                <SortedDescendingCellStyle BackColor="#FFFDF8"></SortedDescendingCellStyle>
-
-                                <SortedDescendingHeaderStyle BackColor="#6F8DAE"></SortedDescendingHeaderStyle>
                             </asp:GridView> 
                         </asp:TableCell>
                         <asp:TableCell>
-                            <asp:Label ID="Label1" runat="server" Text="Customer Details" CssClass="control-label text-info"></asp:Label><br /><br />
-                            <asp:DetailsView CssClass="table" ID="dvCustomerSelect" runat="server" Height="50px" Width="350px" DataKeyNames="CustomerID" DataSourceID="sqlCustomerSelect" AutoGenerateRows="False" CellPadding="4" ForeColor="#333333" GridLines="None">
-                                <AlternatingRowStyle BackColor="White" ForeColor="#284775"></AlternatingRowStyle>
-
-                                <CommandRowStyle BackColor="#E2DED6" Font-Bold="True"></CommandRowStyle>
-
-                                <EditRowStyle BackColor="#999999"></EditRowStyle>
-
-                                <FieldHeaderStyle BackColor="#E9ECF1" Font-Bold="True"></FieldHeaderStyle>
+                            <asp:DetailsView OnItemInserted="dvCustomerSelect_ItemInserted" OnItemUpdated="dvCustomerSelect_ItemUpdated" OnItemDeleted="dvCustomerSelect_ItemDeleted" CssClass="table" ID="dvCustomerSelect" runat="server" Height="50px" Width="350px" DataKeyNames="CustomerID" DataSourceID="sqlCustomerSelect" AutoGenerateRows="False" BorderStyle="None">
                                 <Fields>
                                     <asp:BoundField DataField="CustomerID" HeaderText="CustomerID" ReadOnly="True" InsertVisible="False" SortExpression="CustomerID"></asp:BoundField>
                                     <asp:TemplateField HeaderText="Name" SortExpression="Name">
@@ -61,7 +40,7 @@
                                         </EditItemTemplate>
                                         <InsertItemTemplate>
                                             <asp:TextBox runat="server" Text='<%# Bind("Name") %>' ID="txtNameInsert"></asp:TextBox>
-                                            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Name is required" Text="*" ValidationGroup="insert"></asp:RequiredFieldValidator>
+                                            <asp:RequiredFieldValidator ID="valNameInsert" ControlToValidate="txtNameInsert" runat="server" ErrorMessage="Name is required" Text="*" ValidationGroup="insert"></asp:RequiredFieldValidator>
                                         </InsertItemTemplate>
                                         <ItemTemplate>
                                             <asp:Label runat="server" Text='<%# Bind("Name") %>' ID="Label1"></asp:Label>
@@ -108,15 +87,15 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="ZipCode" SortExpression="ZipCode">
                                         <EditItemTemplate>
-                                            <asp:TextBox runat="server" Text='<%# Bind("ZipCode") %>' ID="txtZipEdit" MaxLength="6"></asp:TextBox>
+                                            <asp:TextBox runat="server" Text='<%# Bind("ZipCode") %>' ID="txtZipEdit" MaxLength="5"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="valZipEdit" runat="server" ErrorMessage="Zip code is required" Text="*" ControlToValidate="txtZipEdit" ValidationGroup="edit"></asp:RequiredFieldValidator>
-                                            <asp:CompareValidator ID="valTypeZipEdit" runat="server" ErrorMessage="Zip code is invalid" Text="*" ValidationGroup="edit" ControlToValidate="txtZipEdit"></asp:CompareValidator>
+                                            <asp:CompareValidator ID="valTypeZipEdit" runat="server" ErrorMessage="Zip code is invalid" Text="*" Type="Integer" Operator="DataTypeCheck" ValidationGroup="edit" ControlToValidate="txtZipEdit"></asp:CompareValidator>
                                         </EditItemTemplate>
                                         <InsertItemTemplate>
-                                            <asp:TextBox runat="server" Text='<%# Bind("ZipCode") %>' ID="txtZipInsert" MaxLength="6"></asp:TextBox>
+                                            <asp:TextBox runat="server" Text='<%# Bind("ZipCode") %>' ID="txtZipInsert" MaxLength="5"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="valZipInsert" runat="server" ErrorMessage="Zip code is required" Text="*" ControlToValidate="txtZipInsert" ValidationGroup="insert"></asp:RequiredFieldValidator>
-                                            <asp:CompareValidator ID="valTypeZip" runat="server" ErrorMessage="Zip code is invalid" Text="*" ValidationGroup="insert" ControlToValidate="txtZipInsert"></asp:CompareValidator>
-                                        Type="Integer" Operator="DataTypeCheck" </InsertItemTemplate>
+                                            <asp:CompareValidator ID="valTypeZip" runat="server" ErrorMessage="Zip code is invalid" Text="*" Type="Integer" Operator="DataTypeCheck" ValidationGroup="insert" ControlToValidate="txtZipInsert"></asp:CompareValidator>
+                                        </InsertItemTemplate>
                                         <ItemTemplate>
                                             <asp:Label runat="server" Text='<%# Bind("ZipCode") %>' ID="Label5"></asp:Label>
                                         </ItemTemplate>
@@ -125,12 +104,12 @@
                                         <EditItemTemplate>
                                             <asp:TextBox runat="server" Text='<%# Bind("Phone") %>' ID="txtPhoneEdit" MaxLength="11"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="valPhoneEdit" runat="server" ErrorMessage="Phone is required" Text="*" ControlToValidate="txtPhoneEdit" ValidationGroup="edit"></asp:RequiredFieldValidator>
-                                            <asp:CompareValidator ID="typePhoneEdit" runat="server" ErrorMessage="Invalid phone number" Text="*" ControlToValidate="txtPhoneEdit" ValidationGroup="edit" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
+                                            <asp:RegularExpressionValidator ID="typePhoneEdit" runat="server" ErrorMessage="Invalid phone number" Text="*" ControlToValidate="txtPhoneEdit" ValidationGroup="edit" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"></asp:RegularExpressionValidator>                                        
                                         </EditItemTemplate>
                                         <InsertItemTemplate>
                                             <asp:TextBox runat="server" Text='<%# Bind("Phone") %>' ID="txtPhoneInsert" MaxLength="11"></asp:TextBox>
                                             <asp:RequiredFieldValidator ID="valPhoneInsert" runat="server" ErrorMessage="Phone is required" Text="*" ControlToValidate="txtPhoneInsert" ValidationGroup="insert"></asp:RequiredFieldValidator>
-                                            <asp:CompareValidator ID="typePhoneInsert" runat="server" ErrorMessage="Invalid phone number" Text="*" ControlToValidate="txtPhoneInsert" ValidationGroup="insert" Type="Integer" Operator="DataTypeCheck"></asp:CompareValidator>
+                                            <asp:RegularExpressionValidator ID="typePhoneInsert" runat="server" ErrorMessage="Invalid phone number" Text="*" ControlToValidate="txtPhoneInsert" ValidationGroup="insert" ValidationExpression="^[01]?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"></asp:RegularExpressionValidator>
                                         </InsertItemTemplate>
                                         <ItemTemplate>
                                             <asp:Label runat="server" Text='<%# Bind("Phone") %>' ID="Label6"></asp:Label>
@@ -164,14 +143,8 @@
                                     </asp:TemplateField>
 
                                 </Fields>
-                                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></FooterStyle>
-
-                                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White"></HeaderStyle>
-
-                                <PagerStyle HorizontalAlign="Center" BackColor="#284775" ForeColor="White"></PagerStyle>
-
-                                <RowStyle BackColor="#F7F6F3" ForeColor="#333333"></RowStyle>
                             </asp:DetailsView>
+                            <asp:Label runat="server" ID="lblDbError" Text="" Visible="false"></asp:Label>
                             <asp:ValidationSummary ID="valSumEdit" ValidationGroup="edit" runat="server" />
                             <asp:ValidationSummary ID="valSumInsert" ValidationGroup="insert" runat="server" />
                         </asp:TableCell>

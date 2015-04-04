@@ -13,6 +13,15 @@ namespace AssignmentTwo.Admin {
     public partial class CustomersAdmin {
         
         /// <summary>
+        /// tblOrg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Table tblOrg;
+        
+        /// <summary>
         /// lblTitle control.
         /// </summary>
         /// <remarks>
@@ -20,15 +29,6 @@ namespace AssignmentTwo.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTitle;
-        
-        /// <summary>
-        /// grdCustomers control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCustomers;
         
         /// <summary>
         /// Label1 control.
@@ -40,6 +40,15 @@ namespace AssignmentTwo.Admin {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// grdCustomers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdCustomers;
+        
+        /// <summary>
         /// dvCustomerSelect control.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace AssignmentTwo.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DetailsView dvCustomerSelect;
+        
+        /// <summary>
+        /// lblDbError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDbError;
         
         /// <summary>
         /// valSumEdit control.
