@@ -17,7 +17,7 @@
                         <asp:TableRow>
                             <asp:TableCell>
                                 <asp:DropDownList AutoPostBack="true" CssClass="dropdown" ID="ddlTechs" runat="server" DataSourceID="sqlTechs" DataTextField="Name" DataValueField="TechID"></asp:DropDownList><br /><br />
-                                <asp:DetailsView CssClass="table table-responsive" ID="dvTechs" runat="server" Height="50px" Width="500px" AutoGenerateRows="False" DataKeyNames="TechID" DataSourceID="sqlTechSelect" BorderStyle="None">
+                                <asp:DetailsView OnItemInserted="dvTechs_ItemInserted" OnItemUpdated="dvTechs_ItemUpdated" OnItemDeleted="dvTechs_ItemDeleted" CssClass="table table-responsive" ID="dvTechs" runat="server" Height="50px" Width="500px" AutoGenerateRows="False" DataKeyNames="TechID" DataSourceID="sqlTechSelect" BorderStyle="None">
                                     <Fields>
                                         <asp:BoundField DataField="TechID" HeaderText="TechID" ReadOnly="True" InsertVisible="False" SortExpression="TechID"></asp:BoundField>
                                         <asp:BoundField DataField="Name" HeaderText="Name" SortExpression="Name"></asp:BoundField>
@@ -28,6 +28,11 @@
                                         </asp:CommandField>
                                     </Fields>
                                 </asp:DetailsView>
+                            </asp:TableCell>
+                        </asp:TableRow>
+                        <asp:TableRow>
+                            <asp:TableCell>
+                                <asp:Label runat="server" ID="lblDbError" Visible="false" Text=""></asp:Label>
                             </asp:TableCell>
                         </asp:TableRow>
                     </asp:Table>
