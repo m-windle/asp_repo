@@ -45,12 +45,12 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Release Date" SortExpression="ReleaseDate">
                                 <EditItemTemplate>
-                                    <asp:TextBox ID="txtDateEdit" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:TextBox>
+                                    <asp:TextBox ID="txtDateEdit" runat="server" Text='<%# Bind("ReleaseDate","{0:d}") %>'></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="valDateEdit" ControlToValidate="txtDateEdit" runat="server" ErrorMessage="Date is Required" Text="*" ValidationGroup="edit"></asp:RequiredFieldValidator>
                                     <asp:CompareValidator ID="valDateTypeEdit" ControlToValidate="txtDateEdit" runat="server" ErrorMessage="Invalid date" Text="*" ValidationGroup="edit" ViewStateMode="Inherit" Operator="DataTypeCheck" Type="Date"></asp:CompareValidator>
                                 </EditItemTemplate>
                                 <ItemTemplate>
-                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("ReleaseDate") %>'></asp:Label>
+                                    <asp:Label ID="Label3" runat="server" Text='<%# Bind("ReleaseDate","{0:d}") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ValidationGroup="edit">
