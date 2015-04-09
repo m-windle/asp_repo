@@ -140,4 +140,14 @@
             <asp:Parameter Name="original_ReleaseDate" Type="DateTime" />
         </UpdateParameters>
     </asp:SqlDataSource>
-    </asp:Content>
+
+    <script src="../scripts/jquery-1.9.1.js"></script>
+    <script src="../scripts/bootstrap.js"></script>
+    <script src="../scripts/angular.js"></script>
+    <script src="../scripts/angular-resource.min.js"></script>
+
+    <script src="../scripts/app/app.js"></script>
+    <script src="../scripts/app/data.js"></script>
+    <script src="../scripts/app/studentCtrl.js"></script>
+
+</asp:Content>

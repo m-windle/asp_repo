@@ -32,9 +32,9 @@
                         <li class="dropdown">
                             <a class="dropdown-toggle" href="#" data-toggle="dropdown">Maintenance<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li><a href="Admin/ProductsAdmin.aspx">Products</a></li>
-                                <li><a href="Admin/CustomersAdmin.aspx">Customers</a></li>
-                                <li><a href="Admin/TechniciansAdmin.aspx">Technicians</a></li>
+                                <li><a href="/Admin/ProductsAdmin.aspx">Products</a></li>
+                                <li><a href="/Admin/CustomersAdmin.aspx">Customers</a></li>
+                                <li><a href="/Admin/TechniciansAdmin.aspx">Technicians</a></li>
                             </ul>
                         </li>
                          <li><a id="A5" runat="server" href="~/Contact">Contact</a></li>
