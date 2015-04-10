@@ -27,6 +27,8 @@ namespace AssignmentTwo.Admin
                 lblDbError.Visible = true;
                 lblDbError.Text = "Another user may have deleted this entry already";
             }
+            else
+                grdCustomers.DataBind();
         }
 
         protected void dvCustomerSelect_ItemUpdated(object sender, DetailsViewUpdatedEventArgs e)
@@ -43,6 +45,8 @@ namespace AssignmentTwo.Admin
                 lblDbError.Visible = true;
                 lblDbError.Text = "Another user may have updated this entry already";
             }
+            else
+                grdCustomers.DataBind();
         }
 
         protected void dvCustomerSelect_ItemInserted(object sender, DetailsViewInsertedEventArgs e)

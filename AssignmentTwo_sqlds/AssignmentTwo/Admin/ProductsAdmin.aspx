@@ -62,7 +62,7 @@
                     
                     <asp:Label ID="lblInsert" CssClass="text-info" runat="server" Text="To add a new product, click 'Add New Product'"></asp:Label><br />
                     <br />
-                    <asp:DetailsView ID="dvProductInsert" runat="server" Height="16px" Width="662px" DataSourceID="sqlProducts" AutoGenerateRows="False" BorderStyle="None">
+                    <asp:DetailsView OnItemInserted="dvProductInsert_ItemInserted" ID="dvProductInsert" runat="server" Height="16px" Width="662px" DataSourceID="sqlProducts" AutoGenerateRows="False" BorderStyle="None">
                         <Fields>
                             <asp:TemplateField ShowHeader="False">
                                 <InsertItemTemplate>

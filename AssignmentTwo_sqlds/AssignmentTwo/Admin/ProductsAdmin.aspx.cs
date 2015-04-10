@@ -11,7 +11,7 @@ namespace AssignmentTwo.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblServerError.Visible = false;
         }
 
         protected void valDate_ServerValidate(object source, ServerValidateEventArgs args)
@@ -51,6 +51,8 @@ namespace AssignmentTwo.Admin
                 lblServerError.Visible = true;
                 lblServerError.Text = "Another user may have updated this entry already";
             }
+            else
+                grdProducts.DataBind();
                 
         }
 
@@ -67,6 +69,26 @@ namespace AssignmentTwo.Admin
                 lblServerError.Visible = true;
                 lblServerError.Text = "Another user may have updated this entry already";
             }
+            else
+                grdProducts.DataBind();
+        }
+
+        protected void dvProductInsert_ItemInserted(object sender, DetailsViewInsertedEventArgs e)
+        {
+            if (e.Exception != null)
+            {
+                lblServerError.Visible = true;
+                lblServerError.Text = "A database error occured. Message: " + e.Exception.Message;
+                e.ExceptionHandled = true;
+                e.KeepInInsertMode = true;
+            }
+            else if (e.AffectedRows == 0)
+            {
+                lblServerError.Visible = true;
+                lblServerError.Text = "Another user may have added this entry already";
+            }
+            else
+                grdProducts.DataBind();
         }
     }
 }
